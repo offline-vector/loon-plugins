@@ -1,0 +1,10 @@
+#!name = Google One Ultra
+#!desc = 解锁/重写 Google One Ultra AI 界面套餐
+#!author = GoogleOne
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+
+[Script]
+http-response ^https://one\.google\.com/(u/[0-9]+/)?ai script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/google-one-ultra.js, requires-body=true, tag=google-one-ultra
+
+[MITM]
+hostname = one.google.com
