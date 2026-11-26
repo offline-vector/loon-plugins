@@ -1,8 +1,8 @@
-#!name = Google One AI Ultra 3个月特惠
-#!desc = 重写 Google One AI 页面响应，将 g1.ios.30tb.ai.pro.m 替换为特惠 SKU (g1.ai.ultra.3months_ip_90p.acq)
+#!name = Google One AI 土区三折特惠
+#!desc = 匹配 one.google.com/ai 页面响应，将 30tb.ai.pro.m 替换为 30tb.m 触发特惠价格
 #!author = offline-vector
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
-#!date = 2026-11-24
+#!date = 2026-11-27
 
 [Script]
 http-response ^https://one\.google\.com/(u/[0-9]+/)?ai\?.*$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/google-one-promo.js, requires-body=true, tag=google-one-promo
