@@ -1,0 +1,11 @@
+#!name = Google One 5X(20TB) - 土区普通存储换道 (20tb.m)
+#!desc = 【5X 20TB】将 20TB Ultra 重写为普通 20TB 存储价格 (20tb.m)
+#!author = offline-vector
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+#!date = 2026-11-28
+
+[Script]
+http-response ^https:\/\/one\.google\.com\/(u\/[0-9]+\/)?ai\?.*$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/g1-turkey-20tb.js, requires-body=true, tag=g1-turkey-20tb
+
+[MITM]
+hostname = one.google.com
