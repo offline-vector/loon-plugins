@@ -1,19 +1,12 @@
 #!name = G1 ACQ Plus v9.6.0 (0.05折/$0.29 Pro & 土区 Ultra & TXT日志导出)
-#!desc = v9.6.0：默认单条无冲突启用「$0.29/1元/0.05折开 Pro 5TB」(com.google.gemini.2tb.ai.m.3month_ip_99p)，保留土区真 Ultra 30TB (₺2949.99) / 20TB (₺1989.99) 老定价档，划线标注已拉闸失效档；内置 iOS 实时抓包日志与一键导出 TXT (https://one.google.com/g1-sku-report)。
+#!desc = v9.6.0：默认单条无冲突启用「$0.29/1元/0.05折开 Pro 5TB」(com.google.gemini.2tb.ai.m.3month_ip_99p)，保留土区真 Ultra 30TB (₺2949.99) / 20TB (₺1989.99) 老定价档；内置 iOS 实时抓包日志与一键导出 TXT (https://one.google.com/g1-sku-report)。
 #!author = Dgkncn & offline-vector
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
 #!date = 2026-11-28
 
-[Rule]
-# 拦截 UDP 443，促使支持回退的 HTTP/3 请求改走 TCP
-AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
-
 [Script]
-# 主改写脚本 (http-response)
-http-response ^https:\/\/one\.google\.com\/ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/g1-acq-plus.js, requires-body=true, tag=g1-acq
-
-# SKU 抓包分析与报告导出页面 (http-request)
-http-request ^https:\/\/one\.google\.com\/g1-sku-report\/?(?:\?.*)?$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/g1-sku-report.js, requires-body=true, tag=g1-sku-report
+http-response ^https://one\.google\.com/(u/[0-9]+/)?ai\?.*$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/g1-acq-plus.js, requires-body=true, tag=g1-acq
+http-request ^https://one\.google\.com/g1-sku-report\/?(?:\?.*)?$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/g1-sku-report.js, requires-body=true, tag=g1-sku-report
 
 [MITM]
 hostname = one.google.com

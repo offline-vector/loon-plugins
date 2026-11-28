@@ -1,15 +1,11 @@
-#!name = Google One 99p (约0.72元/月)
-#!desc = Google One iOS 内购 SKU 改写：20TB 月付 -> com.google.gemini.2tb.ai.m.3month_ip_99p（前3个月约0.72 CNY/月）
+#!name = Google One 99p (0.05折/约0.72元开Pro)
+#!desc = 匹配 one.google.com/ai 页面响应，重写为 3个月 99% OFF 超级特惠 (com.google.gemini.2tb.ai.m.3month_ip_99p)
 #!author = offline-vector
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
 #!date = 2026-11-28
 
-[Rule]
-# 拦截 UDP 443，促使 HTTP/3 (QUIC) 回退到 TCP/HTTPS，确保 MitM 成功抓取解密
-AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
-
 [Script]
-http-response ^https:\/\/one\.google\.com/(u/[0-9]+/)?ai(\?.*)?$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/g1-99p.js, requires-body=true, tag=g1-99p
+http-response ^https://one\.google\.com/(u/[0-9]+/)?ai\?.*$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/g1-99p.js, requires-body=true, tag=g1-99p
 
 [MITM]
 hostname = one.google.com
