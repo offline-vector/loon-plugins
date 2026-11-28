@@ -1,0 +1,11 @@
+#!name = Google One 20X(30TB) - [拉新] 前3期2折($39.99)
+#!desc = 【20X 30TB 拉新】重写为前3期2折 ($39.99/月) acq促销 SKU
+#!author = offline-vector
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+#!date = 2026-11-28
+
+[Script]
+http-response ^https://one\.google\.com/(u/[0-9]+/)?ai\?.*$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/g1-20x-3m-80p-acq.js, requires-body=true, tag=g1-20x-3m-80p-acq
+
+[MITM]
+hostname = one.google.com

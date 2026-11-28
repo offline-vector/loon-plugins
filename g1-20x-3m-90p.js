@@ -1,8 +1,8 @@
-// Google One 20X(30TB) - 前3期1折(.99) acq版
-// 目标: ^https:\/\/one\.google\.com\/(u\/[0-9]+\/)?ai\?.*$
-// 替换为: g1.ai.ultra.3months_ip_90p.acq
+// Google One 20X(30TB) - [拉新] 前3期1折($19.99)
+// 目标: ^https://one\.google\.com/(u/[0-9]+/)?ai\?.*$
+// 替换目标: g1.ai.ultra.3months_ip_90p.acq (拉新 (acq))
 
-let body = .body;
+let body = $response.body;
 
 if (body && typeof body === 'string') {
     const original = body;
@@ -16,11 +16,11 @@ if (body && typeof body === 'string') {
     }
     
     if (body !== original) {
-        console.log('[g1-20x-3m-90p] Successfully rewritten to ' + replacement);
+        console.log('[g1-20x-3m-90p-acq] Successfully rewritten to ' + replacement);
     } else {
-        console.log('[g1-20x-3m-90p] No matching SKU found in response');
+        console.log('[g1-20x-3m-90p-acq] No matching SKU found in response');
     }
-    ({ body: body });
+    $done({ body: body });
 } else {
-    ({});
+    $done({});
 }

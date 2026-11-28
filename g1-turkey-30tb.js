@@ -1,8 +1,8 @@
-// Google One 20X(30TB) - 土区普通存储换道 (30tb.m)
-// 目标: ^https:\/\/one\.google\.com\/(u\/[0-9]+\/)?ai\?.*$
-// 替换为: 30tb.m
+// Google One 20X(30TB) - 土区普通存储换道 (30tb.m 论坛3折)
+// 目标: ^https://one\.google\.com/(u/[0-9]+/)?ai\?.*$
+// 替换目标: 30tb.m (土区换道)
 
-let body = .body;
+let body = $response.body;
 
 if (body && typeof body === 'string') {
     const original = body;
@@ -20,7 +20,7 @@ if (body && typeof body === 'string') {
     } else {
         console.log('[g1-turkey-30tb] No matching SKU found in response');
     }
-    ({ body: body });
+    $done({ body: body });
 } else {
-    ({});
+    $done({});
 }

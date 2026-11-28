@@ -1,8 +1,8 @@
-// Google One 20X(30TB) - 前3期5折(.99)
-// 目标: ^https:\/\/one\.google\.com\/(u\/[0-9]+\/)?ai\?.*$
-// 替换为: g1.ai.pro.3months_ip_50p
+// Google One 20X(30TB) - [通用] 前3期5折($99.99)
+// 目标: ^https://one\.google\.com/(u/[0-9]+/)?ai\?.*$
+// 替换目标: g1.ai.pro.3months_ip_50p (通用促销)
 
-let body = .body;
+let body = $response.body;
 
 if (body && typeof body === 'string') {
     const original = body;
@@ -20,7 +20,7 @@ if (body && typeof body === 'string') {
     } else {
         console.log('[g1-20x-3m-50p] No matching SKU found in response');
     }
-    ({ body: body });
+    $done({ body: body });
 } else {
-    ({});
+    $done({});
 }
