@@ -1,8 +1,8 @@
-#!name = Google One AI 土区三折特惠
-#!desc = 匹配 one.google.com/ai 页面响应，将 30tb.ai.pro.m 替换为 30tb.m 触发特惠价格
+#!name = Google One AI 土区特惠 (30TB 3折 & 20TB 4折)
+#!desc = 匹配 one.google.com/ai 页面响应，将 30TB/20TB Ultra 重写为土区老定价普通存储 (30tb.m / 20tb.m)，触发 3折/4折
 #!author = offline-vector
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
-#!date = 2026-11-27
+#!date = 2026-11-28
 
 [Script]
 http-response ^https://one\.google\.com/(u/[0-9]+/)?ai\?.*$ script-path=https://raw.githubusercontent.com/offline-vector/loon-plugins/main/google-one-promo.js, requires-body=true, tag=google-one-promo
